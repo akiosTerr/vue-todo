@@ -1,6 +1,11 @@
 <template>
 	<div class="todos">
-		<TodoItem v-bind:todo="todo" v-bind:key="todo.id" v-for="todo in todos" />
+		<TodoItem
+			v-bind:todo="todo"
+			v-on:del-todo="$emit('del-todo', todo.id)"
+			v-bind:key="todo.id"
+			v-for="todo in todos"
+		/>
 	</div>
 </template>
 
@@ -21,5 +26,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 400px;
+	margin: auto;
 }
 </style>
